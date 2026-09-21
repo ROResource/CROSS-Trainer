@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>CROSS-Trainer — cryptic clue practice</title>
+  <meta name="description" content="Train on random cryptic crossword clues. Type your answer into the grid, check it, reveal letters when stuck." />
+  <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=zodiak@400,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="CROSS-Trainer home">
+      <svg class="logo" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+        <rect x="1" y="1" width="22" height="22" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <rect x="8.5" y="1.5" width="7" height="21" fill="currentColor"/>
+        <rect x="1.5" y="8.5" width="21" height="7" fill="currentColor"/>
+        <path d="M8.5 8.5v7M15.5 8.5v7" stroke="var(--color-bg)" stroke-width="1.2"/>
+        <path d="M8.5 8.5h7M8.5 15.5h7" stroke="var(--color-bg)" stroke-width="1.2"/>
+      </svg>
+      <span class="brand-name">CROSS<span class="brand-dash">-</span>Trainer</span>
+    </a>
+    <div class="topbar-right">
+      <div class="stats" aria-live="polite">
+        <span class="stat"><b id="stat-solved">0</b> solved</span>
+        <span class="stat"><b id="stat-streak">0</b> streak</span>
+      </div>
+      <button class="icon-btn" id="theme-toggle" data-theme-toggle aria-label="Switch to dark mode" type="button"></button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <section class="card" id="card" aria-labelledby="clue-text">
+      <div class="meta">
+        <span class="meta-source">Irish Independent</span>
+        <span class="meta-dot" aria-hidden="true">·</span>
+        <span id="meta-date">—</span>
+        <span class="meta-dot" aria-hidden="true">·</span>
+        <span id="meta-pos">—</span>
+      </div>
+
+      <p class="clue" id="clue-text">Loading clues…</p>
+
+      <div class="grid" id="grid" role="group" aria-label="Answer letters"></div>
+
+      <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="btn-solve" type="button">Solve</button>
+        <button class="btn" id="btn-reveal" type="button">Show solution</button>
+        <button class="btn" id="btn-next" type="button">Next clue <span aria-hidden="true">→</span></button>
+      </div>
+
+      <div class="tools">
+        <button class="chip" id="btn-hint" type="button" aria-pressed="false">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 1 4 12.7V17H8v-2.3A7 7 0 0 1 12 2z"/></svg>
+          <span id="hint-label">Hint mode: off</span>
+        </button>
+        <span class="tools-note" id="tools-note">Turn on, then tap a square to reveal its letter.</span>
+      </div>
+    </section>
+
+    <p class="kbd-help">
+      <kbd>Enter</kbd> solve, then next clue &nbsp;·&nbsp; <kbd>←</kbd> <kbd>→</kbd> move &nbsp;·&nbsp; <kbd>⌫</kbd> clear a square
+    </p>
+  </main>
+
+  <footer class="foot">
+    <span id="foot-count">—</span> clues in the library · answers marked <span class="swatch swatch-hint"></span> were revealed
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
