@@ -42,13 +42,13 @@ build_clues.py   JSONL → clues.json converter
    python pa_clues.py --pid 38 --cs 26 --start 2013-10-28 --end 2026-09-21 -o indo_cryptic.jsonl
    ```
 
-2. Convert it for the site (dedupes on clue+answer, drops records that carried a parser warning):
+2. Convert it for the site (dedupes on clue+answer ignoring case/punctuation, drops cross-reference clues and records that carried a parser warning; the counts are printed):
 
    ```
    python build_clues.py indo_cryptic.jsonl
    ```
 
-3. Commit `data/clues.json` and push. The full Irish Independent archive (~95k clues) comes to roughly 8 MB, which is still a one-off download that the browser caches.
+3. Commit `data/clues.json` and push. The current library is the full Irish Independent Two-in-One Cryptic archive (Oct 2013 onward): 95,582 scraped clues reduce to 79,110 unique ones after removing repeats, cross-reference clues ("See 9") and glitched records. That is ~6.3 MB on disk, ~2.2 MB compressed in transit, cached by the browser after the first load.
 
 ## Running locally
 
