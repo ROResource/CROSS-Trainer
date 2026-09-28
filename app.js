@@ -111,7 +111,7 @@
     const toLoad = active.filter(({ chunk }) => !Array.isArray(chunkCache.get(chunk.file)));
     if (toLoad.length) {
       const mb = toLoad.reduce((n, { chunk }) => n + chunk.bytes, 0) / 1e6;
-      showLoading(`Loading ${fmtN(total)} clues${mb > 1 ? ` (${mb.toFixed(1)} MB, one-off)` : ''}…`);
+      showLoading(`Fetching ${fmtN(total)} clues${mb > 1 ? ` · ${mb.toFixed(1)} MB, first time only` : ''}…`);
       markLoadingChips(toLoad, true);
     }
     try {
@@ -228,6 +228,9 @@
       const s = manifest.sources.find((x) => x.short === b.firstChild.textContent);
       if (s) b.classList.toggle('is-loading', on && ids.has(s.id));
     }
+    el.deckCount.classList.toggle('is-loading', on);
+    if (on) el.deckCount.textContent = 'loading…';
+    else renderDeckSummary(deckSize());
   }
   function nudge(node) { node.classList.remove('nudge'); void node.offsetWidth; node.classList.add('nudge'); }
 

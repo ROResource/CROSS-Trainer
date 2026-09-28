@@ -71,6 +71,7 @@
 
 /* ------------------------------------------------------------------ base */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
 html { -webkit-text-size-adjust: none; text-size-adjust: none; -webkit-font-smoothing: antialiased; }
 body {
   min-height: 100dvh;
@@ -227,12 +228,9 @@ kbd {
 .chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 .chip .count { font-weight: 500; color: var(--color-text-faint); font-variant-numeric: tabular-nums; }
 .chip[aria-pressed='true'] .count { color: var(--color-text-muted); }
-.chip.is-loading { position: relative; }
-.chip.is-loading::after {
-  content: ''; position: absolute; inset: -1px; border-radius: inherit;
-  border: 1px solid var(--color-pen); border-right-color: transparent; animation: spin 900ms linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
+.chip.is-loading { border-style: dashed; }
+.chip.is-loading .count { color: var(--color-text-faint); }
+.deck-count.is-loading { color: var(--color-text-faint); font-weight: 500; }
 .seg .chip { border-radius: var(--radius-md); }
 .deck-note { font-size: var(--text-xs); color: var(--color-text-faint); margin-top: var(--space-2); }
 .deck-foot {
@@ -260,7 +258,7 @@ kbd {
 
 /* skeleton while a deck downloads */
 .clue.is-loading { color: var(--color-text-faint); font-family: var(--font-body); font-size: var(--text-base); font-weight: 500; }
-.grid .cell.ghost { border-color: var(--color-border); background: var(--color-surface-offset); pointer-events: none; }
+.grid .cell.ghost { border: 1.5px dashed var(--color-border); background: transparent; pointer-events: none; }
 
 /* ------------------------------------------------------------------ feedback + actions */
 .feedback { min-height: 1.5em; font-size: var(--text-sm); color: var(--color-text-muted); }
