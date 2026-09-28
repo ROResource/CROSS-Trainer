@@ -34,9 +34,43 @@
   </header>
 
   <main class="stage">
+    <!-- Deck: which clues are in play -->
+    <section class="deck" id="deck">
+      <button class="deck-summary" id="deck-toggle" type="button" aria-expanded="false" aria-controls="deck-panel">
+        <span class="deck-label">Deck</span>
+        <span class="deck-desc" id="deck-desc">Loading…</span>
+        <span class="deck-count" id="deck-count"></span>
+        <svg class="deck-chevron" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="deck-panel" id="deck-panel" hidden>
+        <fieldset class="deck-group">
+          <legend>Paper</legend>
+          <div class="chips" id="src-chips"></div>
+        </fieldset>
+        <fieldset class="deck-group" id="group-age" hidden>
+          <legend>The Age — setter <span class="legend-tools"><button type="button" class="linkish" data-all="age">all</button> · <button type="button" class="linkish" data-none="age">none</button></span></legend>
+          <div class="chips" id="age-chips"></div>
+        </fieldset>
+        <fieldset class="deck-group" id="group-times" hidden>
+          <legend>The Times — setter <span class="legend-tools"><button type="button" class="linkish" data-all="times">all</button> · <button type="button" class="linkish" data-none="times">none</button></span></legend>
+          <div class="chips" id="times-chips"></div>
+        </fieldset>
+        <fieldset class="deck-group" id="group-expl" hidden>
+          <legend>The Times — explanations</legend>
+          <div class="chips seg" id="expl-chips"></div>
+          <p class="deck-note">Explanations are shown after you solve or reveal a clue.</p>
+        </fieldset>
+        <div class="deck-foot">
+          <span id="deck-total" role="status" aria-live="polite"></span>
+          <button class="btn btn-small" id="deck-done" type="button">Done</button>
+        </div>
+      </div>
+    </section>
+
     <section class="card" id="card" aria-labelledby="clue-text">
       <div class="meta">
-        <span class="meta-source">Irish Independent</span>
+        <span class="meta-source" id="meta-source">—</span>
+        <span class="meta-author-wrap" id="meta-author-wrap" hidden><span class="meta-dot" aria-hidden="true">·</span> <span id="meta-author"></span></span>
         <span class="meta-dot" aria-hidden="true">·</span>
         <span id="meta-date">—</span>
         <span class="meta-dot" aria-hidden="true">·</span>
@@ -48,6 +82,10 @@
       <div class="grid" id="grid" role="group" aria-label="Answer letters"></div>
 
       <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+      <aside class="explain" id="explain" hidden>
+        <span class="explain-label">Explanation</span>
+        <p class="explain-text" id="explain-text"></p>
+      </aside>
 
       <div class="actions">
         <button class="btn btn-primary" id="btn-solve" type="button">Solve</button>
@@ -70,7 +108,7 @@
   </main>
 
   <footer class="foot">
-    <span id="foot-count">—</span> clues in the library · answers marked <span class="swatch swatch-hint"></span> were revealed
+    <span id="foot-count">—</span> clues from the Irish Independent, The Age and the Irish Times · answers marked <span class="swatch swatch-hint"></span> were revealed
   </footer>
 
   <script src="app.js"></script>

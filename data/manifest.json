@@ -1,0 +1,238 @@
+{
+ "sources": [
+  {
+   "id": "indo",
+   "name": "Irish Independent",
+   "short": "The Indo",
+   "setters": false,
+   "explanations": false,
+   "count": 79110,
+   "explained": 0,
+   "chunks": [
+    {
+     "file": "chunks/indo-unattributed-2013-2018.json",
+     "author": null,
+     "years": "2013-2018",
+     "count": 35373,
+     "explained": 0,
+     "bytes": 2795162
+    },
+    {
+     "file": "chunks/indo-unattributed-2019-2024.json",
+     "author": null,
+     "years": "2019-2024",
+     "count": 37467,
+     "explained": 0,
+     "bytes": 2994728
+    },
+    {
+     "file": "chunks/indo-unattributed-2025-2026.json",
+     "author": null,
+     "years": "2025-2026",
+     "count": 6270,
+     "explained": 0,
+     "bytes": 501545
+    }
+   ]
+  },
+  {
+   "id": "age",
+   "name": "The Age",
+   "short": "The Age",
+   "setters": true,
+   "explanations": false,
+   "count": 74386,
+   "explained": 0,
+   "chunks": [
+    {
+     "file": "chunks/age-rj.json",
+     "author": "RJ",
+     "years": "2019-2026",
+     "count": 11506,
+     "explained": 0,
+     "bytes": 952510
+    },
+    {
+     "file": "chunks/age-ds.json",
+     "author": "DS",
+     "years": "2019-2026",
+     "count": 10950,
+     "explained": 0,
+     "bytes": 919516
+    },
+    {
+     "file": "chunks/age-da.json",
+     "author": "DA",
+     "years": "2019-2026",
+     "count": 10354,
+     "explained": 0,
+     "bytes": 878246
+    },
+    {
+     "file": "chunks/age-rm.json",
+     "author": "RM",
+     "years": "2019-2026",
+     "count": 8756,
+     "explained": 0,
+     "bytes": 749596
+    },
+    {
+     "file": "chunks/age-lr.json",
+     "author": "LR",
+     "years": "2019-2026",
+     "count": 7981,
+     "explained": 0,
+     "bytes": 682191
+    },
+    {
+     "file": "chunks/age-dp.json",
+     "author": "DP",
+     "years": "2019-2024",
+     "count": 7071,
+     "explained": 0,
+     "bytes": 553387
+    },
+    {
+     "file": "chunks/age-ns.json",
+     "author": "NS",
+     "years": "2019-2026",
+     "count": 6516,
+     "explained": 0,
+     "bytes": 577815
+    },
+    {
+     "file": "chunks/age-dh.json",
+     "author": "DH",
+     "years": "2019-2022",
+     "count": 4093,
+     "explained": 0,
+     "bytes": 354553
+    },
+    {
+     "file": "chunks/age-d-ls.json",
+     "author": "D&LS",
+     "years": "2023-2026",
+     "count": 3819,
+     "explained": 0,
+     "bytes": 332506
+    },
+    {
+     "file": "chunks/age-rk.json",
+     "author": "RK",
+     "years": "2023-2026",
+     "count": 3104,
+     "explained": 0,
+     "bytes": 260368
+    },
+    {
+     "file": "chunks/age-cn.json",
+     "author": "CN",
+     "years": "2026",
+     "count": 88,
+     "explained": 0,
+     "bytes": 7445
+    },
+    {
+     "file": "chunks/age-sk.json",
+     "author": "SK",
+     "years": "2026",
+     "count": 88,
+     "explained": 0,
+     "bytes": 7624
+    },
+    {
+     "file": "chunks/age-djs.json",
+     "author": "DJS",
+     "years": "2021-2023",
+     "count": 60,
+     "explained": 0,
+     "bytes": 5417
+    }
+   ]
+  },
+  {
+   "id": "times",
+   "name": "Irish Times Crosaire",
+   "short": "The Times",
+   "setters": true,
+   "explanations": true,
+   "count": 234143,
+   "explained": 40926,
+   "chunks": [
+    {
+     "file": "chunks/times-unattributed-1998-2001.json",
+     "author": null,
+     "years": "1998-2001",
+     "count": 32750,
+     "explained": 0,
+     "bytes": 2885786
+    },
+    {
+     "file": "chunks/times-unattributed-2002-2005.json",
+     "author": null,
+     "years": "2002-2005",
+     "count": 37539,
+     "explained": 0,
+     "bytes": 3254756
+    },
+    {
+     "file": "chunks/times-unattributed-2006-2009.json",
+     "author": null,
+     "years": "2006-2009",
+     "count": 37181,
+     "explained": 0,
+     "bytes": 3109146
+    },
+    {
+     "file": "chunks/times-unattributed-2010-2013.json",
+     "author": null,
+     "years": "2010-2013",
+     "count": 35304,
+     "explained": 0,
+     "bytes": 3103139
+    },
+    {
+     "file": "chunks/times-unattributed-2014-2019.json",
+     "author": null,
+     "years": "2014-2019",
+     "count": 33939,
+     "explained": 0,
+     "bytes": 3364770
+    },
+    {
+     "file": "chunks/times-unattributed-2020-2022.json",
+     "author": null,
+     "years": "2020-2022",
+     "count": 16502,
+     "explained": 0,
+     "bytes": 1650307
+    },
+    {
+     "file": "chunks/times-le-corsaire.json",
+     "author": "Le Corsaire",
+     "years": "2022-2026",
+     "count": 19996,
+     "explained": 19996,
+     "bytes": 4366314
+    },
+    {
+     "file": "chunks/times-dominic.json",
+     "author": "Dominic",
+     "years": "2022-2026",
+     "count": 13245,
+     "explained": 13243,
+     "bytes": 2230406
+    },
+    {
+     "file": "chunks/times-fidelia.json",
+     "author": "Fidelia",
+     "years": "2024-2026",
+     "count": 7687,
+     "explained": 7687,
+     "bytes": 1592618
+    }
+   ]
+  }
+ ],
+ "total": 387639
+}

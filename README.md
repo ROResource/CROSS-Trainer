@@ -17,38 +17,48 @@ Live: https://roresource.github.io/CROSS-Trainer/
 
 Correct answers turn the squares green and bump the solved count and streak. A wrong attempt shakes the card and flags the wrong letters. Showing the solution (or revealing every letter) resets the streak. Stats and theme choice are stored locally in the browser.
 
+## Deck
+
+The **Deck** bar above the clue chooses what is in play. Every toggle shows how many clues it holds.
+
+- **Paper** — Irish Independent Two-in-One Cryptic, The Age cryptic, Irish Times Crosaire (multi-select, at least one).
+- **Setter** — for The Age and The Times, tick individual setters (Crosaire clues before 2022 are unattributed).
+- **Explanations** — for The Times: all clues, only those with a published explanation, or only those without. Explanations appear under the answer once you solve or reveal.
+
+The deck choice is remembered in the browser. Only the files a deck needs are downloaded, and each is fetched once.
+
 ## Files
 
 ```
-index.html       markup
-style.css        newsprint / biro / highlighter design tokens, light + dark
-app.js           clue deck, grid builder, input handling, scoring
-data/clues.json  the clue library (compact arrays, see below)
-build_clues.py   JSONL → clues.json converter
+index.html          markup
+style.css           newsprint / biro / highlighter design tokens, light + dark
+app.js              manifest + lazy chunk loading, deck filters, grid builder, input handling, scoring
+data/manifest.json  sources, setters and counts (what the toggles show)
+data/chunks/*.json  the clues, one file per paper/setter (large ones split by year)
+build_clues.py      JSONL -> manifest + chunks
 ```
 
-`data/clues.json` is a JSON array of rows:
+Each clue row is a compact array:
 
 ```
-[clue, enumeration, answer, date, number, direction]
+[clue, enumeration, answer, date, number, direction, explanation?]
 ["Produce another printing of a book about children", "7", "REISSUE", "2026-09-08", "23", "across"]
 ```
 
 ## Updating the clue library
 
-1. Collect clues with `pa_clues.py` (kept alongside this project) into a JSONL file, e.g.
+1. Collect clues into JSONL with the scrapers (`pa_clues.py` for the Indo; the Age and Crosaire scrapers emit the same schema plus `author` and `explanation`).
+2. Rebuild the data files — the cleaning counts are printed:
 
    ```
-   python pa_clues.py --pid 38 --cs 26 --start 2013-10-28 --end 2026-09-21 -o indo_cryptic.jsonl
+   python build_clues.py --indo indo_cryptic.jsonl --age age_cryptic.jsonl --times crosaire.jsonl
    ```
 
-2. Convert it for the site (dedupes on clue+answer ignoring case/punctuation, drops cross-reference clues and records that carried a parser warning; the counts are printed):
+   Cleaning: drops parser warnings, missing enumerations, non-alphabetic answers, enumeration/answer length mismatches, cross-reference clues ("See 9", "one-third of 14 across"), strips HTML tags, and dedupes within each paper on clue+answer ignoring case and punctuation (earliest kept).
 
-   ```
-   python build_clues.py indo_cryptic.jsonl
-   ```
+3. Commit `data/` and push.
 
-3. Commit `data/clues.json` and push. The current library is the full Irish Independent Two-in-One Cryptic archive (Oct 2013 onward): 95,582 scraped clues reduce to 79,110 unique ones after removing repeats, cross-reference clues ("See 9") and glitched records. That is ~6.3 MB on disk, ~2.2 MB compressed in transit, cached by the browser after the first load.
+Current library: 387,639 clues — Irish Independent 79,110 (2013–), The Age 74,386 (2019–, 13 setters), Irish Times Crosaire 234,143 (1998–, 40,926 with explanations). About 37 MB on disk; the Indo alone is ~2.2 MB compressed.
 
 ## Running locally
 
